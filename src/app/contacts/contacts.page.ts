@@ -9,7 +9,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./contacts.page.scss'],
   providers: [ContactService]
 })
-export class ContactsPage implements OnInit {
+export class ContactsPage {
 
   // contacts: Contact[] =[
   //   {
@@ -39,7 +39,7 @@ export class ContactsPage implements OnInit {
 
   constructor(private service : ContactService,private cf: ChangeDetectorRef) { 
 
-    this.data=this.service.getContacts
+    // this.data=this.service.getContacts
 
     
   }
@@ -49,9 +49,15 @@ export class ContactsPage implements OnInit {
    
   }
 
-  ngOnInit() {
+  // ngOnInit() {
+
+  //   this.contactinfo=this.service.getAllContacts();
+  // }
+  ionViewWillEnter(){
 
     this.contactinfo=this.service.getAllContacts();
+    console.log( this.contactinfo )
+
   }
 
 }
