@@ -18,7 +18,7 @@ export class ContactService {
     {
       fname:'Stewart',
       lname:'Albert',
-      email:'ericj12@gmail.com',
+      email:'stewart12@gmail.com',
       mobilenumber:'7897897891',
       category: 'friends'
     },
@@ -32,7 +32,7 @@ export class ContactService {
     {
       fname:'Eric',
       lname:'Nikson',
-      email:'rebaccasa@gmail.com',
+      email:'eric45@gmail.com',
       mobilenumber:'9897897891',
       category: 'friends'
     },
@@ -46,7 +46,7 @@ export class ContactService {
     {
       fname:'Mehajabeen',
       lname:'Sameera',
-      email:'harleen23@gmail.com',
+      email:'sameera23@gmail.com',
       mobilenumber:'8997897891',
       category: 'family'
     }
@@ -58,8 +58,6 @@ export class ContactService {
 
     this.contactData.push(data)
     console.log(this.contactData)
-  
-    // this.contactData.push({fname:fname,lname:lname,email:email,mobilenumber:mobilenumber,category:category})
   }
 
   

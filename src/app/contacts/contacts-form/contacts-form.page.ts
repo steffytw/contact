@@ -44,10 +44,7 @@ export class ContactsFormPage implements OnInit {
 
 
   public submit(form: FormGroup) {
-    
-    // this.service.getContacts(form.value.fname,form.value.lname,form.value.email,form.value.mobilenumber,form.value.category)
-    // JSON.stringify(this.contactForm.value)
-    
+   
     this.service.getContacts(this.contactForm.value)
     this.router.navigate(['/contacts']);
     console.log(form)

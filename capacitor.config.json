@@ -1,10 +1,10 @@
 {
-  "appId": "io.ionic.phoneapp",
+  "appId": "io.ionicphoneapp.phoneapp",
   "appName": "phoneBook",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "linuxAndroidStudioPath": "/snap/bin/android-studio",
+  "linuxAndroidStudioPath": "/home/steffy/Desktop/android-sdk/android-studio/bin/studio.sh",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
