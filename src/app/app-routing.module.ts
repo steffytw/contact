@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'contacts',
     pathMatch: 'full'
   },
+  {
+    path: 'contact-details/:id',
+    loadChildren: () => import('./contact-details/contact-details.module').then( m => m.ContactDetailsPageModule)
+  },
  
 ];
 

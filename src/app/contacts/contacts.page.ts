@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ContactService } from './../contact.service';
 import { Component, ChangeDetectorRef } from '@angular/core';
 
@@ -12,13 +13,18 @@ export class ContactsPage {
   data:any
   friendcategory:any
   familycategory:any
+  public groups:any
   
-  constructor(private service : ContactService,private cf: ChangeDetectorRef) { 
- 
+  
+  constructor(private service : ContactService,private cf: ChangeDetectorRef,private router :Router) { 
+    this.groups='all'
   }
   segmentChanged(ev: any) {
     console.log('Segment changed',ev);
     this.cf.detectChanges();  
+  }
+  goToContactetails(id) {
+    this.router.navigate(['/contact-details', id]);
   }
 
   ionViewWillEnter(){

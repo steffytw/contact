@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Contact Details</ion-title>
+    <ion-button slot="start" routerLink="">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="loaddetails">
+   
+    <ion-img src = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png'></ion-img>
+
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>First Name : {{loaddetails.fname}}</ion-label> 
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name : {{loaddetails.lname}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email : {{loaddetails.email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mobile Number : {{loaddetails.mobilenumber}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Group : {{loaddetails.category}}</ion-label>
+    </ion-item>
+  </ion-list>
+  
+
+   
+</ion-content>

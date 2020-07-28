@@ -12,49 +12,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ContactsFormPage implements OnInit {
   ContactService: any;
-  contactForm:FormGroup
+  contactForm:FormGroup;
   contactdata:any;
-  // public errorMessages = {
-  //   fname: [
-  //     { type: 'required', message: 'First Name is required' },
-  //     { type: 'maxlength', message: 'First Name cant be longer than 100 characters' }
-  //   ],
-  //   lname: [
-  //     { type: 'required', message: 'Last Name is required' },
-  //     { type: 'maxlength', message: 'Last Name cant be longer than 100 characters' }
-  //   ],
-  //   email: [
-  //     { type: 'required', message: 'Email is required' },
-  //     { type: 'pattern', message: 'Please enter a valid email address' }
-  //   ],
-  //   mobilenumber: [
-  //     { type: 'required', message: 'Mobile number is required' },
-  //     { type: 'pattern', message: 'Please enter a valid Mobile number' }
-  //   ],
-  //   category: [
-  //     { type: 'required', message: 'Group is required' },
-  //     { message: 'Please select any one Group' }
-  //   ]
-  // }
-
-    
+  id:string;
   
+  contacts:any;
 
-  constructor(private formBuilder: FormBuilder,private service:ContactService,private activatedRoute: ActivatedRoute,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private service:ContactService,private activatedRoute: ActivatedRoute,private router: Router) { 
+
+  }
 
 
   public submit(form: FormGroup) {
-   
-    this.service.getContacts(this.contactForm.value)
+    let data = this.contactForm.value;
+    this.contacts=this.service.getAllContacts();
+    let contactsLength = this.contacts.length;
+    data['id'] = (Number(this.contacts[contactsLength-1]['id'])+1).toString();
+    this.service.getContacts(data)
     this.router.navigate(['/contacts']);
     console.log(form)
-    
-
 
   }
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
+  
       fname: [null,[Validators.required,Validators.maxLength(100)]],
       lname: [null,[Validators.required,Validators.maxLength(100)]],
       email: [null, [Validators.required,Validators.pattern("^[a-zA-Z0-9,%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$")]],

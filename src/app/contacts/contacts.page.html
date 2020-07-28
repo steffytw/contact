@@ -6,8 +6,12 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-segment color="primary" [(ngModel)]="Groups" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="friends" checked>
+  <ion-segment color="primary" [(ngModel)]="groups" (ionChange)="segmentChanged($event)">
+    <ion-segment-button class="segment-button segment-activated" value="all">
+      <ion-label>all</ion-label>
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="friends">
       <ion-label>friends</ion-label>
       <ion-icon name="people-outline"></ion-icon>
     </ion-segment-button>
@@ -16,13 +20,26 @@
       <ion-icon name="people-circle-outline"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <div [ngSwitch]="Groups">
-    <ion-list *ngSwitchCase="'friends'"> 
+  <div [ngSwitch]="groups">
+    <ion-list *ngSwitchCase="'all'"> 
 
-      <ion-item  *ngFor = 'let contact of friendcategory'>
+      <ion-item [routerLink]="['/contact-details', contact.id]"  *ngFor = 'let contact of contactinfo'>
         
         <ion-avatar slot="start">
-          <ion-img src = 'https://image.shutterstock.com/image-vector/user-sign-icon-person-symbol-260nw-230288827.jpg'></ion-img>
+          <ion-img src = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png'></ion-img>
+
+        </ion-avatar>
+        <ion-label >{{contact.fname}} {{contact.lname}} </ion-label>
+      
+      </ion-item>
+    
+    </ion-list>
+    <ion-list *ngSwitchCase="'friends'"> 
+
+      <ion-item [routerLink]="['/contact-details', contact.id]" *ngFor = 'let contact of friendcategory'>
+        
+        <ion-avatar slot="start">
+          <ion-img src = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png'></ion-img>
         </ion-avatar>
         <ion-label >{{contact.fname}} {{contact.lname}} </ion-label>
       
@@ -31,10 +48,11 @@
     </ion-list>
     <ion-list *ngSwitchCase="'family'"> 
 
-      <ion-item  *ngFor = 'let contact of familycategory'>
+      <ion-item  [routerLink]="['/contact-details', contact.id]" *ngFor = 'let contact of familycategory'>
         
         <ion-avatar slot="start">
-          <ion-img src = 'https://image.shutterstock.com/image-vector/user-sign-icon-person-symbol-260nw-230288827.jpg'></ion-img>
+          <ion-img src = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png'></ion-img>
+
         </ion-avatar>
         <ion-label >{{contact.fname}} {{contact.lname}} </ion-label>
       
