@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Contact Details</ion-title>
-    <ion-button slot="start" routerLink="">
+    <ion-button slot="start" routerLink="/contacts">
       <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="loaddetails" slot="end" [routerLink]="['/edit-contact',loaddetails.id]">
+      <ion-icon name="create-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>

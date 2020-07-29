@@ -61,23 +61,34 @@ export class ContactService {
   contactForm: any;
   
   getContacts(data:any){
-
     this.contactData.push(data)
     console.log(this.contactData)
   }
-
   
-  getAllContacts(){
-    return [...this.contactData]
-
+  updateContact(data) {
+    let contacts = this.getAllContacts();
+    contacts.forEach(function(row) {
+      if(row['id'] == data['id']) {
+        row['fname'] = data['fname'];
+        row['lname'] = data['lname'];
+        row['mobilenumber'] = data['mobilenumber'];
+        row['email'] = data['email'];
+        row['category'] = data['category'];
+      }
+    });
+    return true;
   }
-  getContactId(contactId:string){
+  
+  getAllContacts() {
+    return [...this.contactData];
+  }
+
+  getContactId(contactId:string) {
     return {...this.contactData.find(value=>{
       return value.id === contactId;
     })}
   }
   
   constructor() { }
-
   
 }

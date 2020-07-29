@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from './../contact.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +12,7 @@ export class ContactDetailsPage implements OnInit {
   id: number;
   
 
-  constructor( private service:ContactService,private activatedRoute : ActivatedRoute) { }
+  constructor( private service:ContactService,private activatedRoute : ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {

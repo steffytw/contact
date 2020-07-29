@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Edit Contact</ion-title>
+    <ion-button *ngIf="loaddetails" slot="start" [routerLink]="['/contact-details',loaddetails.id]">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="loaddetails">
+   
+    <ion-img src = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png'></ion-img>
+
+  </div>
+ 
+  
+  <form [formGroup] ="contactForm" (ngSubmit)="update(contactForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input formControlName="fname" autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+      
+     
+       
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input formControlName="lname" autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+      
+      
+
+     
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" autocapitalize inputmode="email"></ion-input>
+      </ion-item>
+      
+      
+      <ion-item>
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input formControlName="mobilenumber" autocapitalize inputmode="tel"></ion-input>
+      </ion-item>
+      
+     
+      <ion-item>
+        <ion-label>Groups</ion-label>
+        <ion-select  placeholder="Select one" formControlName ="category" >
+          <ion-select-option value="friends">friends</ion-select-option>
+          <ion-select-option value="family">family</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      
+      <ion-button [disabled]="!contactForm.valid" type="submit" expand="block">Update</ion-button>
+    
+    </ion-list>
+  
+  </form>  
+
+   
+</ion-content>
