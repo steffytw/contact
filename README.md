@@ -1,1 +1,2 @@
-# contact
+# PhoneBook App
+A simple phone book app which has a home page with all contacts listed in it. Each list element contains an avatar image and contact name (ie first name + last name)  and on top of the app bar, there is a + button. While clicking on it shows an add a contact form. The form has fields like First name, last name, email, phone & category(options: friend, family) with proper validation. After adding the contact it lists in the home page list. While clicking on any contact in the list it shows contact detail page with name, image, phone email, and category. Also in the home page top of the contact list there need a segmented button with buttons, All, friend, family which will filter the list accordingly while clicking.
